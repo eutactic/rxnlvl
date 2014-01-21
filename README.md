@@ -91,6 +91,6 @@ You can only have one baseline. The syntax should be fairly familiar:
 
 ###Okay let's plot this.
 
-    p.plot()
+    p.write()
 
 Will dump a `*.svg` file of your plot to `stdout`. Have fun!
