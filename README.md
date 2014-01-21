@@ -7,11 +7,11 @@ A simple python package for drawing attractive chemical reaction energy level di
 
 What do I need?
 ------
-rxnlvl requires Python 2.x or later.
+`rxnlvl` requires Python 2.x or later.
 
 How do I work it?
 ------
-You can import the rxnlvl module to draw plots. A parser for those not versed in Python is planned, but even if youd don't know python you should still be able to easily create plots. Here's the script that generates part of the image you see above (I truncated it for brevity but you can make plots as long as you want):
+You can import the `rxnlvl` module to draw plots. A parser for those not versed in Python is planned, but even if you don't know python you should still be able to easily create plots. Here's the script that generates part of the image you see above (I truncated it for brevity but you can make plots as long as you want):
 
     #! /usr/bin/python
     
@@ -50,7 +50,7 @@ The boilerplate just tells Python where to find rxnlvl. Let's step through the r
     p = plot([25.0,10.0],vbuf=10.0,hbuf=5.0,bgcolour=None, qualified=False)
     
 The plot takes the following arguments:
-- `dimensions` - the width and height of the plot in cm
+- `dimensions` - the width and height of the plot in cm.
 - `vbuf` - the vertical margin as a percentage of the total height.
 - `hbuf` - the horizontal margin as a percentage of the total height.
 - `bgcolour` - the background colour of the image, as a 24-bit hexadecimal integer, or `None`. If `None`, the background will be transparent!
