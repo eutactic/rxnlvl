@@ -6,7 +6,7 @@ sys.path.insert(1,"/home/user/bin/rxnlvl/") # Change this to the full path of rx
 from rxnlvl import *
 
 # Plot
-p = plot([25.0,10.0],vbuf=10.0,hbuf=5.0,bgcolour=None, qualified=False)
+p = plot([25.0,10.0],vbuf=10.0,hbuf=5.0,bgcolour=None, qualified='''it's complicated''')
 
 p +  level(energy(   0.0, 'kjmol'),  1,    '1',      0x0) 
 p +  level(energy(  -8.5, 'kjmol'),  2,  'EC1',      0x0)

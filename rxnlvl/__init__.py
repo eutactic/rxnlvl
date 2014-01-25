@@ -42,7 +42,7 @@ class plot():
         try:
             assert len(dimensions) == 2, 'plot dimensions not equal to 2\n'
         except AssertionError as e:
-            sys.stderr.write(e)
+            sys.stderr.write(str(e))
             sys.exit(1)
         try:
             for elem in dimensions:
@@ -51,7 +51,7 @@ class plot():
                 str(elem)
                 )
         except AssertionError as e:
-            sys.stderr.write(e)
+            sys.stderr.write(str(e))
             sys.exit(1)
         self.dimensions = dimensions
         if validateColour(bgcolour):
@@ -62,13 +62,13 @@ class plot():
                              'transparent\n'
                             )
         try:
-            assert type(qualified) == bool,\
-            'Label qualification must be True or False, got {0}\n'.format(
-            qualified
+            assert type(qualified) in [bool, str],\
+            ('Could not interpret qualification ({0}) as '.format(qualified) +
+             'boolean or string.\n'
             )
         except AssertionError as e:
-            sys.stderr.write(e)
-            sys.exit()
+            sys.stderr.write(str(e))
+            sys.exit(1)
         self.qualified = qualified
         try:
             assert vbuf > 0 and hbuf > 0,\
@@ -76,7 +76,7 @@ class plot():
              'positive rational numbers\n'
             )
         except AssertionError:
-            sys.stderr.write(e)
+            sys.stderr.write(str(e))
             sys.exit(1)
         self.vbuf = float(vbuf)
         self.hbuf = float(hbuf)
@@ -166,6 +166,16 @@ class plot():
                           edge.getOpacity()
                          ))
         # Draw energy levels as well as their annotations
+        def qualify(node, qualified):
+            qual_lut = {True:node.getQualifiedEnergy(), False:node.getEnergy()}
+            if qualified in qual_lut.keys():
+                return(qual_lut[qualified])
+            else:
+                if node == self.nodes[0]:
+                    return(node.getQualifiedEnergy())
+                else:
+                    return(node.getEnergy())
+            
         for node in self.nodes:
             svgstring += ('    <line x1="{0}%" x2="{1}%" y1="{2}%" y2="{2}%" stroke-linecap="round" stroke="#{3}" stroke-width="3"/>\n'.format(
                           node.getVisualLeft(),
@@ -182,8 +192,7 @@ class plot():
             svgstring += ('    <text x="{0}%" y="{1}%" dy="1ex" font-family="sans-serif" text-anchor="middle" font-size="8pt" fill="#000000">{2}</text>\n'.format(
                           node.getVisualLeft()+sliceWidth/2,
                           node.getVisualHeight()+4,
-                          node.getQualifiedEnergy() if self.qualified \
-                          else node.getEnergy()
+                          qualify(node,self.qualified)
                          ))
         svgstring += appendTextFile('{0}/dat/svgpostfix.frag'.format(str(path)))
         sys.stderr.write('Normal termination\n')
