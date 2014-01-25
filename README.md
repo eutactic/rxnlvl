@@ -54,7 +54,7 @@ The plot takes the following arguments:
 - `vbuf` - the vertical margin as a percentage of the total height.
 - `hbuf` - the horizontal margin as a percentage of the total height.
 - `bgcolour` - the background colour of the image, as a 24-bit hexadecimal integer, or `None`. If `None`, the background will be transparent!
-- `qualified` - if true, the units in which each energy are specified will be pretty-printed in the image.
+- `qualified` - if True, the units in which each energy are specified will be pretty-printed in the image. If False, will only print the numeric values. If set to *any* string value, will only print units on the leftmost energy level, which is useful if you want to give units in your plot but don't want to clutter it up.
 
 Now we can start adding elements to the plot.
 
