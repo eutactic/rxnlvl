@@ -68,7 +68,7 @@ class level:
         str(self.location),
         hex(self.colour))
         )
-    
+
     def getEnergy(self):
         # Requests raw numeric energy in kJ/mol - used for positioning and unqualified annotation
         return(self.energy.getRawEnergy())
@@ -76,6 +76,9 @@ class level:
     def getQualifiedEnergy(self):
         # Gets pretty-printed energy - used for qualified annotation only
         return(str(self.energy))
+
+    def getUnqualifiedEnergy(self):
+        return(str(self.energy.getUnqualifiedEnergy()))
 
     def getLocation(self):
         # The ordinal position of the level
@@ -107,7 +110,7 @@ class level:
     def setVisualLeft(self, sliceWidth, hbuf):
         # Internal setter for the visual x-pos of the left hand side of the level, expressed as a percentage coordinate on the canvas
         self.visual_left = float(self.location-1)*(sliceWidth*2)+(hbuf/2)
-    
+
     def getVisualLeft(self):
         # Getter for the visual x-pos of the left hand side of the level, expressed as a percentage coordinate on the canvas
         return(self.visual_left)

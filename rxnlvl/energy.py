@@ -57,7 +57,11 @@ class energy:
             sys.exit(1)
 
     def __repr__(self):
-        return('{0} {1}'.format(self.energy,unit_prettyprint[self.units]))
+        return('{0} {1}'.format(int(self.energy) if self.energy % 1 == 0 else self.energy,
+                unit_prettyprint[self.units]))
+
+    def getUnqualifiedEnergy(self):
+        return('{0}'.format(int(self.energy) if self.energy % 1 == 0 else self.energy))
 
     def getRawEnergy(self):
         return(self.energy*self.factor_conversion)

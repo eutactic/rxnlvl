@@ -167,15 +167,15 @@ class plot():
                          ))
         # Draw energy levels as well as their annotations
         def qualify(node, qualified):
-            qual_lut = {True:node.getQualifiedEnergy(), False:node.getEnergy()}
+            qual_lut = {True:node.getQualifiedEnergy(), False:node.getUnqualifiedEnergy()}
             if qualified in qual_lut.keys():
                 return(qual_lut[qualified])
             else:
                 if node == self.nodes[0]:
                     return(node.getQualifiedEnergy())
                 else:
-                    return(node.getEnergy())
-            
+                    return(node.getUnqualifiedEnergy())
+
         for node in self.nodes:
             svgstring += ('    <line x1="{0}%" x2="{1}%" y1="{2}%" y2="{2}%" stroke-linecap="round" stroke="#{3}" stroke-width="3"/>\n'.format(
                           node.getVisualLeft(),
