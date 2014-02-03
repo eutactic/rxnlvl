@@ -21,14 +21,14 @@ You can import the `rxnlvl` module to draw plots. A parser for those not versed 
     from rxnlvl import *
     
     # Plot
-    p = plot([25.0,10.0],vbuf=10.0,hbuf=5.0,bgcolour=None, qualified=False)
+    p = plot([25.0,10.0],vbuf=10.0,hbuf=5.0,bgcolour=None, qualified='sortof')
     
-    p +  level(energy(   0.0, 'kjmol'),  1,    '1',      0x0) 
-    p +  level(energy(  -8.5, 'kjmol'),  2,  'EC1',      0x0)
-    p +  level(energy(  24.4, 'kjmol'),  3, 'TS1a', 0xFF4444)
-    p +  level(energy(   5.1, 'kjmol'),  3, 'TS1b',      0x0)
-    p +  level(energy( -10.2, 'kjmol'),  4,  'DC1',      0x0)
-    p +  level(energy(  -8.2, 'kjmol'),  5,    '2',      0x0)
+    p +  level(energy(    0, 'kjmol'),  1,    '1',      0x0) 
+    p +  level(energy(-85.5, 'kjmol'),  2,  'EC1',      0x0)
+    p +  level(energy(  244, 'kjmol'),  3, 'TS1a', 0xFF4444)
+    p +  level(energy(   51, 'kjmol'),  3, 'TS1b',      0x0)
+    p +  level(energy( -102, 'kjmol'),  4,  'DC1',      0x0)
+    p +  level(energy(  -82, 'kjmol'),  5,    '2',      0x0)
     
     p +  edge(    '1',  'EC1', 0x0, 0.4, 'normal') 
     p +  edge(  'EC1', 'TS1a', 0x0, 0.2, 'normal') 
@@ -47,7 +47,7 @@ The boilerplate just tells Python where to find rxnlvl. Let's step through the r
 
 ###Plot creation:
 
-    p = plot([25.0,10.0],vbuf=10.0,hbuf=5.0,bgcolour=None, qualified=False)
+    p = plot([25.0,10.0],vbuf=10.0,hbuf=5.0,bgcolour=None, qualified='sortof')
     
 The plot takes the following arguments:
 - `dimensions` - the width and height of the plot in cm.
@@ -60,7 +60,7 @@ Now we can start adding elements to the plot.
 
 ###Time to add some levels:
 
-    p +  level(energy(   0.0, 'kjmol'),  1,    '1',      0x0)
+    p +  level(energy(   0, 'kjmol'),  1,    '1',      0x0)
 
 Each level object takes the following arguments:
 - `energy` - an `energy` object which represents the relative energy of the level. Each energy has 2 arguments - the energy as a floating point number, and the units, which can be `'kjmol'`, `'eh'` (Hartrees), `'ev'` (electronvolts), `'kcal'` (thermochemical kilocalories per mole) or `'wavenumber'`.
