@@ -19,17 +19,17 @@
 
 import sys
 
-unit_conversion = { 'kjmol':1.0,
-                    'eh':2625.5,
-                    'ev':96.487,
-                    'kcal':4.184,
-                    'wavenumber':83.593
+unit_conversion = { 'kjmol':        1.0,
+                    'eh':        2625.5,
+                    'ev':          96.487,
+                    'kcal':         4.184,
+                    'wavenumber':   0.011963
                   }
 
-unit_prettyprint = { 'kjmol':'kJ·mol⁻¹',
-                     'eh'   :'Hartree',
-                     'ev'   :'eV',
-                     'kcal' :'kCal·mol⁻¹',
+unit_prettyprint = { 'kjmol':     'kJ·mol⁻¹',
+                     'eh'   :     'Hartree',
+                     'ev'   :     'eV',
+                     'kcal' :     'kCal·mol⁻¹',
                      'wavenumber':'cm⁻¹'
                    }
 
